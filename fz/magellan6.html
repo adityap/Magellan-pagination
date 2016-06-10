@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <!--<script src="https://cdn.jsdelivr.net/jquery/3.0.0-rc1/jquery.min.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/foundation/6.2.3/js/foundation.core.js"></script>
+        <script src="https://cdn.jsdelivr.net/foundation/6.2.3/js/foundation.magellan.js"></script>
+        
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.css">
+        
+        <style>
+            input{left:0px;top:0px;position:fixed;}
+            .mymenu{left:0px;top:0px;position:fixed;display: block;}
+            .gap{margin-bottom:50px; display:block;}
+            section{height:1000px;width:100%;border:1px solid black;}
+            .active{background-color: green;}
+        </style>
+        <script>
+                $(document).foundation();
+        </script>
+    </head>
+    <body>
+        <!--<input type="text" id="pgnum" placeholder="page number" data-magellan-arrival="pgnum" />-->
+        <ul class="horizontal menu mymenu" data-magellan>
+        <li><a href="#pg1">pg1</a></li>
+        <li><a href="#pg2">pg2</a></li>
+        </ul>
+
+        <div class="sections">
+            <section id="pg1" data-magellan-target="pg1">First Section</section>
+            <section id="pg2" data-magellan-target="pg2">Second Section</section>
+        </div>
+    </body>    
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/5.5.3/css/foundation.css">
+
+        <script src="https://cdn.jsdelivr.net/foundation/5.5.3/js/vendor/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/foundation/5.5.3/js/foundation/foundation.js"></script>
+        <script src="https://cdn.jsdelivr.net/foundation/5.5.3/js/foundation/foundation.magellan.js"></script>
+
+        
+        <style>
+            input{left:0px;top:0px;position:fixed;}
+            label{height:1000px;width:100%;border:1px solid black;}
+        </style>
+    </head>
+    <body>
+        <!--<input type="text" id="pgnum" placeholder="page number" data-magellan-arrival="pgnum" />-->
+        <div data-magellan-expedition="fixed">
+            <dl data-magellan class="sub-nav">
+                <dd data-magellan-arrival="pg1"><a href="#pg1">pg1</a></dd>
+                <dd data-magellan-arrival="pg2"><a href="#pg2">pg2</a></dd>
+            </dl>
+        </div>        
+        <a name="pg1" data-magellan-destination="pg1">PG 1</a>
+        <label>pg 1 content</label>
+        <a name="pg2" data-magellan-destination="pg1">PG 2</a>
+        <label>pg 2 content</label>
+
+        <script>
+            $(document).ready(function() {
+                $(document).foundation();
+            })
+        </script>
+    </body>    
+</html>

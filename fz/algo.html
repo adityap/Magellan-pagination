@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script   src="http://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+<style>
+  p {height:1000px; width:100%;} 
+  a.hidden {display:none;} 
+  input {display: inline;position:fixed; left:0px; top:0px;}
+  body {overflow: hidden;}
+  div.scrollable{overflow-y:scroll;height:900px;}
+</style>  
+
+</head>
+<body>
+<input type="text" id="pgnum" placeholder="page number" />
+<br/><br/>
+<div class="scrollable">
+  <h3>Home</h3>
+  <a name="home"></a>
+    <p id="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+  <h3>About</h3>
+  <a name="about"></a>
+    <p id="2" style="height:300px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+  <h3>Service</h3>
+  <a name="service"></a>
+    <p id="3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+</div>
+
+<script>
+         
+  $('div.scrollable').scroll(function(){
+    var totalScroll = this.scrollTop;
+    var page = 1;
+    $('p').each(function(index){
+      totalScroll -= $(this).height();
+      if(totalScroll <= 0) {
+          return false;
+      }
+      page++;
+    });
+    $('#pgnum').val(page);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script   src="http://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+  <script src="scrollspy.js"><script>
+
+<style>
+  p {height:1000px; width:100%;} 
+  a.hidden {display:none;} 
+  input {display: inline;position:fixed; left:0px; top:0px;}
+  body {overflow: hidden;}
+  div.scrollable{overflow-y:scroll;height:900px;}
+</style>  
+
+</head>
+<body>
+<input type="text" id="pgnum" placeholder="page number" />
+<br/><br/>
+<div class="scrollable">
+  <h3>Home</h3>
+  <a name="home"></a>
+    <p id="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+  <h3>About</h3>
+  <a name="about"></a>
+    <p id="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+  <h3>Service</h3>
+  <a name="service"></a>
+    <p id="3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+</div>
+
+<script>
+           $(function domReady($) {
+                // for each element with the class 'color'
+                $('p').each(function eachElement() {
+                    // cache the jQuery object
+                    var $this = $(this);
+
+                    var position = $this.position();
+
+                    window.console.log(position);
+                    window.console.log('min: ' + position.top + ' / max: ' + window.parseInt(position.top + $this.height(), 10));
+
+                    $this.scrollspy({
+                        container: $('div.scrollable'),
+                        min: position.top,
+                        max: position.top + $this.height(),
+                        onEnter: function onEnter(element/*, position*/) {
+                            $('#pgnum').val(element.id);
+                            window.console.log('Entering ' + element.id);
+                        },
+                        onLeave: function onLeave(element/*, position*/) {
+                            window.console.log('Leaving ' + element.id);
+                        }
+                    });
+                });
+            });
+          
+  // $('div.scrollable').scroll(function(){
+
+  //   $('#pgnum').val();
+  // });
+</script>
+</body>
+</html>
