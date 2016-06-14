@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+ 
+<style>
+  p {height:1000px; width:100%;}  
+</style>  
+
+</head>
+<body>
+<div data-magellan-expedition="fixed">
+   <section class="top-bar-section">
+      <div class="sticky-mag">
+         <ul class="horizontal menu" data-magellan>
+            <li data-magellan-arrival="home"><a href="#home">Home</a></li>
+            <li data-magellan-arrival="about"><a href="#about">About</a></li>
+            <li data-magellan-arrival="service"><a href="#service">Service</a></li>
+         </ul>
+      </div>
+   </section>
+</div>
+<br/><br/>
+
+<h2>Example of Magellan Sticky Navigation</h2>
+<h3 data-magellan-destination="home">Home</h3>
+<a name="home"></a>
+   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+<h3 data-magellan-destination="about">About</h3>
+<a name="about"></a>
+   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+<h3 data-magellan-destination="service">Service</h3>
+<a name="service"></a>
+   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<script>
+   $(document).ready(function() {
+     $(document).foundation();
+   })
+</script>
+</body>
+</html>

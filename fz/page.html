@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script   src="http://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+<style>
+  /*p {height:1000px; } */
+  a.hidden {display:none;} 
+  input {display: inline;position:fixed; left:0px; top:0px;}
+  body {overflow: hidden;
+      background-color: #DDDDDD;
+    margin:0px;
+    padding-left:5px;}
+  div.scrollable{overflow-y:scroll;height:900px;}
+  /*div.page{height:1000px; border-style: outset; margin-bottom: 15px;}*/
+  div.page{height:1000px; margin-bottom: 20px;
+    border:solid 1px black;
+    border-radius: 5px;
+    background-color: white;
+    width:95%;
+  -moz-box-shadow: 10px 10px 10px #000000;
+-webkit-box-shadow: 10px 10px 10px #000000;
+box-shadow: 10px 10px 10px #000000;}
+   /*-moz-box-shadow: 10px 10px 7px #000000;
+  -webkit-box-shadow: 10px 10px 7px #000000;
+  box-shadow: 10px 10px 7px #000000;*/
+  canvas{width: 250px; height:300px; border: 1px solid green;}
+  /*img {display:none;}*/
+</style>  
+
+</head>
+<body>
+<input type="text" id="pgnum" placeholder="page number" />
+<br/><br/>
+<div class="scrollable">
+  <div class="page">
+  <h3>Home</h3>
+  <a name="home"></a>
+    <img id="img1" src="http://www.w3schools.com/HTML/img_the_scream.jpg" alt="The Scream" width="220" height="277">
+    <canvas id="cs1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</canvas>
+  </div>
+  <div class="page">
+  <h3>About</h3>
+  <a name="about"></a>
+    <img id="img2" src="http://www.w3schools.com/HTML/img_the_scream.jpg" alt="The Scream" width="220" height="277">
+    <canvas id="cs2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</canvas>
+  </div>
+  <div class="page">
+  <h3>Service</h3>
+  <a name="service"></a>
+    <img id="img3" src="http://www.w3schools.com/HTML/img_the_scream.jpg" alt="The Scream" width="220" height="277">
+    <canvas id="cs3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</canvas>
+  </div>
+</div>
+<button onclick="loadCanvas()">Load Canvas</button>
+<script>
+         
+  $('div.scrollable').scroll(function(){
+    var totalScroll = this.scrollTop;
+    var page = 1;
+    $('div.page').each(function(index){
+      totalScroll -= $(this).height();
+      if(totalScroll <= 0) {
+          return false;
+      }
+      page++;
+    });
+    $('#pgnum').val(page);
+  });
+
+  function loadCanvas() {
+      // $('canvas').each(function(index){
+      //     var context = this.getContext('2d');
+      //     var img = document.getElementById("img1");
+      //     context.drawImage(img,0,0);
+      // });
+    var c = document.getElementById("cs1");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("img1");
+    ctx.drawImage(img,0,0);
+  };
+</script>
+</body>
+</html>

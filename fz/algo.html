@@ -3,11 +3,28 @@
 <head>
   <script   src="http://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
 <style>
-  p {height:1000px; width:100%;} 
+  /*p {height:1000px; } */
   a.hidden {display:none;} 
   input {display: inline;position:fixed; left:0px; top:0px;}
   body {overflow: hidden;}
   div.scrollable{overflow-y:scroll;height:900px;}
+  /*div.page{height:1000px; border-style: outset; margin-bottom: 15px;}*/
+  div.page{height:1000px; margin-bottom: 20px;
+    border:solid 1px black;
+    border-radius: 5px;
+    background-color: white;
+    width:95%;
+  -moz-box-shadow: 10px 10px 10px #000000;
+-webkit-box-shadow: 10px 10px 10px #000000;
+box-shadow: 10px 10px 10px #000000;}
+   /*-moz-box-shadow: 10px 10px 7px #000000;
+  -webkit-box-shadow: 10px 10px 7px #000000;
+  box-shadow: 10px 10px 7px #000000;*/
+  body{
+    background-color: #DDDDDD;
+    margin:0px;
+    padding-left:5px;
+  }
 </style>  
 
 </head>
@@ -15,17 +32,21 @@
 <input type="text" id="pgnum" placeholder="page number" />
 <br/><br/>
 <div class="scrollable">
+  <div class="page">
   <h3>Home</h3>
   <a name="home"></a>
     <p id="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-
+  </div>
+  <div class="page">
   <h3>About</h3>
   <a name="about"></a>
     <p id="2" style="height:300px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-
+  </div>
+  <div class="page">
   <h3>Service</h3>
   <a name="service"></a>
     <p id="3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  </div>
 </div>
 
 <script>
@@ -33,7 +54,7 @@
   $('div.scrollable').scroll(function(){
     var totalScroll = this.scrollTop;
     var page = 1;
-    $('p').each(function(index){
+    $('div.page').each(function(index){
       totalScroll -= $(this).height();
       if(totalScroll <= 0) {
           return false;
